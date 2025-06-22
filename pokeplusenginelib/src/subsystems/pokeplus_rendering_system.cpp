@@ -4,19 +4,20 @@
 #include "pokeplus/pokeplus_macros.hpp"
 
 namespace PokePlusLib {
-    SDL_Window* _window = nullptr;
-    SDL_Renderer* _renderer = nullptr;
-    bool OpenWindow(const char* title, const int width, const int height) {
-        SDL_CHECK(SDL_CreateWindowAndRenderer(title, width, height, 0, &_window, &_renderer ),
-                  "Couldn't create window and renderer");
+    SDL_Window *_window = nullptr;
+    SDL_Renderer *_renderer = nullptr;
+
+    bool OpenWindow(const char *title, const int width, const int height) {
+        return SDL_CHECK(SDL_CreateWindowAndRenderer(title, width, height, 0, &_window, &_renderer ),
+                         "Couldn't create window and renderer");
     }
 
     bool RenderClear() {
-        SDL_CHECK(SDL_RenderClear(_renderer),"RenderClear error");
+        return SDL_CHECK(SDL_RenderClear(_renderer), "RenderClear error");
     }
 
     bool RenderPresent() {
-        SDL_CHECK(SDL_RenderPresent(_renderer), "RenderPresent error");
+        return SDL_CHECK(SDL_RenderPresent(_renderer), "RenderPresent error");
     }
 
     void CloseWindow() {

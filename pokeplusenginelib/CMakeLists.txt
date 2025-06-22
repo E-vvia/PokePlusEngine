@@ -3,10 +3,10 @@ project(PokePlusEngineLib VERSION 1.0 LANGUAGES C CXX)
 set(SRC_FILES
         src/pokeplus_main.cpp
         src/subsystems/pokeplus_rendering_system.cpp
-        src/scenes/scene.cpp
-        src/subsystems/pokeplus_scene_system.cpp
-)
-set(SUBSYSTEM_HEADERS
+        src/scenes/pokeplus_scene.cpp
+        src/scenes/pokeplus_scene_manager.cpp
+        src/subsystems/pokeplus_logging_system.cpp
+        src/maps/pokeplus_tilemap.cpp
 )
 
 set(INCLUDE_HEADERS
@@ -15,14 +15,15 @@ set(INCLUDE_HEADERS
         include/pokeplus/pokeplus_subsystems.hpp
         include/pokeplus/pokeplus_engine_defs.hpp
         include/pokeplus/subsystems/pokeplus_rendering_system.hpp
-        include/pokeplus/subsystems/pokeplus_map_system.hpp
-        include/pokeplus/maps/map.hpp
-        include/pokeplus/subsystems/pokeplus_scene_system.hpp
+        include/pokeplus/scenes/pokeplus_scene_manager.hpp
         include/pokeplus/pokeplus_macros.hpp
-        include/pokeplus/scenes/scene.hpp
+        include/pokeplus/scenes/pokeplus_scene.hpp
+        include/pokeplus/subsystems/pokeplus_logging_system.hpp
+        include/pokeplus/maps/pokeplus_tilemap.hpp
+        include/pokeplus/maps/pokeplus_map_manager.hpp
 )
 
-add_library(${PROJECT_NAME} ${SRC_FILES} ${INCLUDE_HEADERS} ${SUBSYSTEM_HEADERS})
+add_library(${PROJECT_NAME} ${SRC_FILES} ${INCLUDE_HEADERS})
 
 target_include_directories(${PROJECT_NAME}
         PRIVATE

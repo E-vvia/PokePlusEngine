@@ -1,12 +1,12 @@
-#include <pokeplus/subsystems/pokeplus_scene_system.hpp>
+#include <pokeplus/scenes/pokeplus_scene_manager.hpp>
 
 namespace PokePlusLib {
     Scene* _active_scene = nullptr;
 
-    Scene* GetActiveScene() {
+    Scene* active_scene() {
         return _active_scene;
     }
-    void SetActiveScene(Scene* scene) {
+    void active_scene(Scene* scene) {
         _active_scene = scene;
     }
 }
